@@ -12,48 +12,41 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
-  final currentQuestion = questions[0];
+  var currentQuestionIndex = 0;
+
+  void nextQuestion() {
+    // currentQuestionIndex = currentQuestionIndex + 1;
+    // currentQuestionIndex += 1;
+    setState(() {
+      currentQuestionIndex++;
+    });
+  }
+
   @override
   Widget build(context) {
+    final currentQuestion = questions[currentQuestionIndex];
+
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            currentQuestion.text,
-            style: const TextStyle(color: Colors.white, fontSize: 18),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          
-          AnswerButton(
-            answers: currentQuestion.answers[0],
-            onPress: () {},
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          AnswerButton(
-            answers: currentQuestion.answers[1],
-            onPress: () {},
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          AnswerButton(
-            answers: currentQuestion.answers[2],
-            onPress: () {},
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          AnswerButton(
-            answers: currentQuestion.answers[3],
-            onPress: () {},
-          ),
-        ],
+      child: Container(
+        margin: const EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              currentQuestion.text,
+              style: const TextStyle(color: Colors.white, fontSize: 18),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
+            ...currentQuestion.getSuffledAnswers().map(
+              (answer) {
+                return AnswerButton(answerText: answer, onPress: nextQuestion);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

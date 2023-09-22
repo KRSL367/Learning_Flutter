@@ -6,7 +6,7 @@ const questions = [
     [
       'I am not gay',
       'Who says that?',
-      'Yes I am',
+      'Cuz I am gay',
       'How do you know that ?',
     ],
   ),
@@ -43,7 +43,7 @@ const questions = [
       'gay',
       'Homosexual',
       'queer',
-      'I am gay',
+      'smart',
     ],
   ),
 ];
