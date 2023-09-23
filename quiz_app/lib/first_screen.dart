@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const quizLogo = 'assets/images/quiz-logo.png';
 
@@ -24,9 +25,12 @@ class FirstScreen extends StatelessWidget {
         const SizedBox(
           height: 70,
         ),
-        const Text(
-          'Begin Your Test',
-          style: TextStyle(fontSize: 20, color: Colors.white),
+        Text(
+          'Let the quiz begin',
+          style: GoogleFonts.lato(
+              color: const Color.fromARGB(255, 223, 234, 245),
+              fontSize: 28,
+              fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 20),
         const Icon(
