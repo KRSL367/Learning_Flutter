@@ -1,6 +1,5 @@
-import "package:flutter/material.dart";
-
-import "firstclass.dart";
+import 'package:flutter/material.dart';
+import 'package:test_project/firstclass.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'loginpage',
       debugShowCheckedModeBanner: false,
-      title: "Hello App",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        fontFamily: 'Poppins',
+        primarySwatch: Colors.blue
       ),
-      home: firstclass(),
+      home:  const MyHomePage(),
     );
   }
+
 }
